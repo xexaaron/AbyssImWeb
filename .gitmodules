@@ -1,0 +1,6 @@
+[submodule "Vendor/imgui"]
+	path = Vendor/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "Vendor/litehtml"]
+	path = Vendor/litehtml
+	url = https://github.com/litehtml/litehtml
