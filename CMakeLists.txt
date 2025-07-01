@@ -53,6 +53,7 @@ if (STANDALONE)
         ${IMGUI_DIR}/imgui_demo.cpp
         ${IMGUI_DIR}/imgui.cpp
     )
+    
     add_library(ImGui STATIC ${IMGUI_HEADERS} ${IMGUI_SOURCES} ${IMGUI_BACKENDS})
 
     target_include_directories(ImGui PUBLIC
@@ -95,7 +96,8 @@ add_library(AbyssImWeb ${CPP_SOURCES} ${CPP_HEADERS})
 
 target_link_libraries(AbyssImWeb PUBLIC ImGui litehtml)
 
-target_include_directories(AbyssImWeb PUBLIC 
+target_include_directories(AbyssImWeb PUBLIC
+    "Source/Public"
     ${IMGUI_INCLUDE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/Vendor/litehtml/include    
 )
