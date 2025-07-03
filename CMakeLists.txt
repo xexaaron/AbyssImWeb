@@ -1,19 +1,14 @@
 cmake_minimum_required(VERSION 3.28.3)
 project(Abyss)
 
+
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 if (MSVC)
-    set(COMPILE_OPTS 
-        /W4 
-        /wd4100 
-        /wd4201 
-        /wd4505 
-        /Zc:preprocessor
-    )
-    set(LINK_OPTS /SUBSYSTEM:WINDOWS)
+    set(COMPILE_OPTS /W4 /wd4100 /wd4201 /wd4505 /Zc:preprocessor)
 else()
     set(COMPILE_OPTS 
         -Wall -Wextra 
@@ -23,7 +18,6 @@ else()
         -Wno-gnu-anonymous-struct 
         -Wno-nested-anon-types
     )
-    set(LINK_OPTS)
 endif()
 
 # Check if we're building ImGui internally
@@ -79,7 +73,7 @@ endif()
 # Setup Litehtml
 add_subdirectory(Vendor/litehtml)
 set_target_properties(litehtml PROPERTIES FOLDER "Dependencies/litehtml")
-
+set_target_properties(gumbo PROPERTIES FOLDER "Dependencies/litehtml")
 # Sources
 
 set(CPP_SOURCES
